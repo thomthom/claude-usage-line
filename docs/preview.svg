@@ -1,35 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="172" viewBox="0 0 760 172" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif">
-  <title>The usage-line band above the Claude Code message box: Context 8%, Session 71% resetting in 1h 17m, Weekly 10% resetting in 2d 7h.</title>
-  <rect width="760" height="172" rx="12" fill="#141414"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="162" viewBox="0 0 760 162" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif">
+  <title>The usage-line band above the Claude Code message box: Context 21%, Session 86% resetting in 37m, Weekly 11% resetting in 2d 6h.</title>
+  <rect width="760" height="162" rx="12" fill="#141414"/>
 
   <!-- The band the mod draws -->
-  <path d="M30 20 H730 A10 10 0 0 1 740 30 V78 H20 V30 A10 10 0 0 1 30 20 Z" fill="#1b1b1b" stroke="#333333"/>
+  <rect x="20" y="16" width="720" height="58" rx="10" fill="#1e1e1e"/>
 
-  <g transform="translate(44 36)">
-    <circle cx="13" cy="13" r="11" fill="none" stroke="#808080" stroke-opacity="0.35" stroke-width="3"/>
-    <circle cx="13" cy="13" r="11" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-dasharray="5.53 69.12" transform="rotate(-90 13 13)"/>
-    <text x="36" y="10" font-size="13" font-weight="600" fill="#e8e6e3">Context 8%</text>
-    <text x="36" y="27" font-size="12" fill="#8a8884">84k / 1M</text>
+  <g transform="translate(36 0)">
+    <text x="0" y="40" font-size="13" font-weight="600" fill="#e8e6e3">Context</text>
+    <text x="216" y="40" font-size="12" fill="#8a8884" text-anchor="end">21% · 208k / 1M</text>
+    <rect x="0" y="50" width="216" height="4" fill="#808080" fill-opacity="0.35"/>
+    <rect x="0" y="50" width="45.4" height="4" fill="#3b82f6"/>
   </g>
 
-  <g transform="translate(274 36)">
-    <circle cx="13" cy="13" r="11" fill="none" stroke="#808080" stroke-opacity="0.35" stroke-width="3"/>
-    <circle cx="13" cy="13" r="11" fill="none" stroke="#e0a526" stroke-width="3" stroke-linecap="round" stroke-dasharray="49.07 69.12" transform="rotate(-90 13 13)"/>
-    <text x="36" y="10" font-size="13" font-weight="600" fill="#e0a526">Session 71%</text>
-    <text x="36" y="27" font-size="12" fill="#8a8884">resets in 1h 17m</text>
+  <g transform="translate(272 0)">
+    <text x="0" y="40" font-size="13" font-weight="600" fill="#e8e6e3">Session</text>
+    <text x="216" y="40" font-size="12" fill="#e0a526" text-anchor="end">86% · resets in 37m</text>
+    <rect x="0" y="50" width="216" height="4" fill="#808080" fill-opacity="0.35"/>
+    <rect x="0" y="50" width="185.8" height="4" fill="#e0a526"/>
   </g>
 
-  <g transform="translate(504 36)">
-    <circle cx="13" cy="13" r="11" fill="none" stroke="#808080" stroke-opacity="0.35" stroke-width="3"/>
-    <circle cx="13" cy="13" r="11" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-dasharray="6.91 69.12" transform="rotate(-90 13 13)"/>
-    <text x="36" y="10" font-size="13" font-weight="600" fill="#e8e6e3">Weekly 10%</text>
-    <text x="36" y="27" font-size="12" fill="#8a8884">resets in 2d 7h</text>
+  <g transform="translate(508 0)">
+    <text x="0" y="40" font-size="13" font-weight="600" fill="#e8e6e3">Weekly</text>
+    <text x="216" y="40" font-size="12" fill="#8a8884" text-anchor="end">11% · resets in 2d 6h</text>
+    <rect x="0" y="50" width="216" height="4" fill="#808080" fill-opacity="0.35"/>
+    <rect x="0" y="50" width="23.8" height="4" fill="#3b82f6"/>
   </g>
 
   <!-- The message box below it -->
-  <path d="M20 78 H740 V118 A10 10 0 0 1 730 128 H30 A10 10 0 0 1 20 118 Z" fill="#262626" stroke="#333333"/>
+  <rect x="20" y="82" width="720" height="42" rx="10" fill="#1e1e1e" stroke="#333333"/>
   <text x="40" y="108" font-size="14" fill="#6f6d69">Type / for commands</text>
 
-  <text x="24" y="156" font-size="13" fill="#9a9894">Auto</text>
-  <text x="736" y="156" font-size="13" fill="#9a9894" text-anchor="end">Opus 5.5 · Medium</text>
+  <text x="24" y="148" font-size="13" fill="#9a9894">Auto</text>
+  <text x="736" y="148" font-size="13" fill="#9a9894" text-anchor="end">Opus 5.5 · Medium</text>
 </svg>

@@ -64,22 +64,24 @@ export function gauges(
   return result
 }
 
-const RING_COLORS: Record<Level, string> = {
+const BAR_COLORS: Record<Level, string> = {
   normal: '#3b82f6',
   warning: '#e0a526',
   critical: '#e5534b',
 }
 
-export function ringSvg(percent: number, level: Level): string {
-  const radius = 10
-  const circumference = 2 * Math.PI * radius
-  const filled = (Math.min(100, Math.max(0, percent)) / 100) * circumference
-  // The track is grey at partial opacity so it reads on light and dark themes.
+export const BAR_HEIGHT = 4
+
+// The viewBox is 100 units wide so the filled width is the percentage itself, and
+// preserveAspectRatio="none" stretches it to whatever width the column has.
+// The track is grey at partial opacity so it reads on light and dark themes.
+export function barSvg(percent: number, level: Level): string {
+  const filled = Math.min(100, Math.max(0, percent))
   return (
-    '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">' +
-    `<circle cx="13" cy="13" r="${radius}" fill="none" stroke="#808080" stroke-opacity="0.35" stroke-width="3"/>` +
-    `<circle cx="13" cy="13" r="${radius}" fill="none" stroke="${RING_COLORS[level]}" stroke-width="3" ` +
-    `stroke-linecap="round" stroke-dasharray="${filled.toFixed(2)} ${circumference.toFixed(2)}" transform="rotate(-90 13 13)"/>` +
+    `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="${BAR_HEIGHT}" ` +
+    `viewBox="0 0 100 ${BAR_HEIGHT}" preserveAspectRatio="none">` +
+    `<rect width="100" height="${BAR_HEIGHT}" fill="#808080" fill-opacity="0.35"/>` +
+    `<rect width="${filled}" height="${BAR_HEIGHT}" fill="${BAR_COLORS[level]}"/>` +
     '</svg>'
   )
 }

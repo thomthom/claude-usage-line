@@ -1,14 +1,14 @@
 # usage-line
 
-A Claude Code mod that shows three rings above the message box:
+A Claude Code mod that shows three bars above the message box:
 
-![Three rings above the Claude Code message box: Context 8%, Session 71% resetting in 1h 17m, Weekly 10% resetting in 2d 7h.](docs/preview.svg)
+![Three bars above the Claude Code message box: Context 21%, Session 86% resetting in 37m, Weekly 11% resetting in 2d 6h.](docs/preview.svg)
 
 - **Context:** how full the session's context window is, in tokens.
 - **Session:** how much of the 5-hour limit is used, and when it resets.
 - **Weekly:** how much of the weekly limit is used, and when it resets.
 
-A ring turns amber from 70% and red from 90%. The terminal shows the same figures as text.
+A bar turns amber from 70% and red from 90%. The terminal shows the same figures as text.
 
 ## Install
 

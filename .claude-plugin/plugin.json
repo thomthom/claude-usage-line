@@ -1,7 +1,7 @@
 {
   "name": "usage-line",
-  "version": "0.2.0",
-  "description": "Shows context fill and the session and weekly limits as rings above the message box.",
+  "version": "0.3.0",
+  "description": "Shows context fill and the session and weekly limits as bars above the message box.",
   "author": { "name": "Thomas Thomassen" },
   "types": "./types/index.d.ts"
 }

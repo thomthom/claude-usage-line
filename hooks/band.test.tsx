@@ -16,7 +16,7 @@ test('draws a label per gauge on every surface', async ($, on) => {
       component: 'AbovePrompt',
       props: { hasSurvey: false, isWorking: false, maxRows: 10 } as never,
     })
-    expect(await ui.find({ type: 'Text', text: /Session 71%/ })).toBeDefined()
+    expect(await ui.find({ type: 'Text', text: /71%/ })).toBeDefined()
     await ui.unmount()
   }
 })

@@ -1,7 +1,7 @@
 import { atom, read, update } from 'claude-code'
 import type { EngineInterface, Register } from 'claude-code'
 
-import { gauges, ringSvg } from './format'
+import { BAR_HEIGHT, barSvg, gauges } from './format'
 
 // The band reads this only so that each new measurement redraws it.
 const measuredAt = atom({ plugin: 'usage-line', key: 'measuredAt' } as const, 0)
@@ -51,23 +51,21 @@ export const register: Register = on => {
 
     const { Box, Text, Svg } = $.ui.resolve(e)
     return (
-      <Box flexDirection="row" gap="lg" alignItems="center">
+      <Box flexDirection="row" gap="lg">
         {shown.map(gauge => (
-          <Box key={gauge.key} flexDirection="row" gap="sm" alignItems="center">
-            <Svg
-              source={ringSvg(gauge.percent, gauge.level)}
-              alt={`${gauge.label} ${gauge.percent}%`}
-              width={26}
-              height={26}
-            />
-            <Box flexDirection="column">
-              <Text weight="medium" tabular color={LEVEL_COLORS[gauge.level]}>
-                {gauge.label} {gauge.percent}%
-              </Text>
-              <Text size="caption" dimColor tabular>
-                {gauge.detail}
+          <Box key={gauge.key} flexDirection="column" gap="xs" flexGrow={1} flexShrink={1}>
+            <Box flexDirection="row" justifyContent="space-between" gap="sm">
+              <Text weight="medium">{gauge.label}</Text>
+              <Text size="footnote" dimColor tabular color={LEVEL_COLORS[gauge.level]}>
+                {gauge.percent}%{gauge.detail ? ` · ${gauge.detail}` : ''}
               </Text>
             </Box>
+            {/* An Svg is sized in pixels. A Box's height counts text rows, which is far too tall for a bar. */}
+            <Svg
+              source={barSvg(gauge.percent, gauge.level)}
+              alt={`${gauge.label} ${gauge.percent}%`}
+              height={BAR_HEIGHT}
+            />
           </Box>
         ))}
       </Box>

@@ -6,7 +6,7 @@ const USAGE = {
   rateLimits: [{ kind: 'five_hour', percentUsed: 71, resetsAt: '2026-10-16T13:17:00Z' }],
 }
 
-test('draws a label per gauge on every surface', async ($, on) => {
+test('draws a label per gauge on every surface when showInTerminal is on', { options: { showInTerminal: true } }, async ($, on) => {
   on('session.usage', () => ({ value: USAGE }))
   on('clock.now', () => ({ value: Date.parse('2026-10-16T12:00:00Z') }))
   for (const surface of ['terminal', 'desktop'] as const) {
@@ -17,6 +17,27 @@ test('draws a label per gauge on every surface', async ($, on) => {
       props: { hasSurvey: false, isWorking: false, maxRows: 10 } as never,
     })
     expect(await ui.find({ type: 'Text', text: /71%/ })).toBeDefined()
+    await ui.unmount()
+  }
+})
+
+test('draws nothing in the terminal by default', async ($, on) => {
+  on('ui.render', ($, e) => {
+    const { Text } = $.ui.resolve(e)
+    return <Text>engine</Text>
+  })
+  on('session.usage', () => ({ value: USAGE }))
+  on('clock.now', () => ({ value: Date.parse('2026-10-16T12:00:00Z') }))
+  for (const surface of ['terminal', 'desktop'] as const) {
+    const ui = await $.ui.mount({
+      plugin: 'usage-line',
+      surface,
+      component: 'AbovePrompt',
+      props: { hasSurvey: false, isWorking: false, maxRows: 10 } as never,
+    })
+    const label = await ui.find({ type: 'Text', text: /71%/ })
+    if (surface === 'terminal') expect(label).toBeUndefined()
+    else expect(label).toBeDefined()
     await ui.unmount()
   }
 })

@@ -13,7 +13,7 @@ async function remeasure($: EngineInterface): Promise<void> {
 
 const LEVEL_COLORS = { normal: undefined, warning: 'warning', critical: 'error' } as const
 
-export const register: Register = on => {
+export const register: Register = (on, options) => {
   on('session.start', async ($, e, next) => {
     const started = await next(e)
     // Re-measuring each minute keeps the time until each limit resets current between turns.
@@ -31,6 +31,7 @@ export const register: Register = on => {
   on('ui.render', { component: 'AbovePrompt' }, async ($, e, next) => {
     await read($, measuredAt)
     if (e.props.hasSurvey) return next(e)
+    if (e.surface === 'terminal' && options.showInTerminal !== true) return next(e)
 
     const { context, rateLimits } = await $.session.usage()
     const shown = gauges(context, rateLimits, await $.clock.now())

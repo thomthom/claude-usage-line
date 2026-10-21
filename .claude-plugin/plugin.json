@@ -1,7 +1,15 @@
 {
   "name": "usage-line",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Shows context fill and the session and weekly limits as bars above the message box.",
   "author": { "name": "Thomas Thomassen" },
-  "types": "./types/index.d.ts"
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "showInTerminal": {
+      "type": "boolean",
+      "title": "Show usage in the terminal",
+      "description": "Show the usage figures above the message box in the terminal. The desktop app always shows the bars.",
+      "default": false
+    }
+  }
 }

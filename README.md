@@ -10,6 +10,10 @@ A Claude Code mod that shows three bars above the message box:
 
 A bar turns amber from 70% and red from 90%. The terminal shows the same figures as text.
 
+## Settings
+
+**Show usage in the terminal** (`showInTerminal`, off by default) can be turned on in `/config` to show the figures as text in the terminal. The desktop app shows the bars either way.
+
 ## Install
 
 Type this at the Claude Code prompt:
